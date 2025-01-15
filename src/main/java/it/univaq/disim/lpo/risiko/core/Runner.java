@@ -33,7 +33,6 @@ public class Runner {
         // Ciclo principale del gioco
         while (running) {
             try {
-
                 // Inizializza la partita (nuova o caricata)
                 Gioco gioco = giocoService.inizializzaPartita();
 
@@ -47,52 +46,52 @@ public class Runner {
                     gioco.setArmateDistribuite(true);                
                 }
 
-                //Ciclo interno del gioco: esegue i turni dei giocatori.
+                // Ciclo interno del gioco: esegue i turni dei giocatori.
                 while (gioco.isPartitaInCorso() && !gioco.isRitornaAlMenu()) {
                     List<Giocatore> ordineGiocatori = gioco.getOrdineGiocatori();
 
-                    //Ottiene il giocatore corrente.
+                    // Ottiene il giocatore corrente.
                     Giocatore giocatore = ordineGiocatori.get(gioco.getCurrentPlayerIndex());
 
-                    //Esegue il turno del giocatore.
+                    // Esegue il turno del giocatore.
                     boolean continua = giocoService.turnoGiocatore(giocatore, gioco);
                     if (!continua || !gioco.isPartitaInCorso() || gioco.isRitornaAlMenu()) {
                         if (gioco.isPartitaInCorso()) {
-                            
-                            //Logga la fine del turno del giocatore.
+                            // Logga la fine del turno del giocatore.
                             FileServiceImpl.getInstance().writeLog("Turno di " + giocatore.getNome().toUpperCase() + "terminato.");
                             FileServiceImpl.getInstance().writeLog("");
                         } else {
                             FileServiceImpl.getInstance().writeLog("GIOCO TERMINATO");
                         }
-                        break;// Esce dal ciclo interno se il gioco è terminato o si torna al menù.
+                        break; // Esce dal ciclo interno se il gioco è terminato o si torna al menù.
                     }
-                    //Aggiorna l'indice del giocatore corrente.
+
+                    // Aggiorna l'indice del giocatore corrente.
                     int nextPlayerIndex = (gioco.getCurrentPlayerIndex() + 1) % ordineGiocatori.size();
                     gioco.setCurrentPlayerIndex(nextPlayerIndex);
 
-                    //Controlla se un round è stato completato(Tutti i giocatori hanno giocato).
+                    // Controlla se un round è stato completato(Tutti i giocatori hanno giocato).
                     if (nextPlayerIndex == 0) {
-                        gioco.incrementRoundCount();//Incrementa il contatore dei round.
+                        gioco.incrementRoundCount(); // Incrementa il contatore dei round.
 
-                        //Mostra messaggio di completamento del round.
+                        // Mostra messaggio di completamento del round.
                         OutputUtils.println("\n══════════════════", OutputUtils.ANSI_BRIGHT_GREEN, OutputUtils.ANSI_BOLD);
                         OutputUtils.println("ROUND " + (gioco.getRoundCount() - 1) + " COMPLETATO", OutputUtils.ANSI_BRIGHT_PURPLE, OutputUtils.ANSI_BOLD);
                         OutputUtils.println("══════════════════", OutputUtils.ANSI_BRIGHT_GREEN, OutputUtils.ANSI_BOLD);
                         try {
-                            Thread.sleep(2000);   //Pausa per migliorare la leggibilità.
+                            Thread.sleep(2000);   // Pausa per migliorare la leggibilità.
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         } 
                     }
                 }
 
-                //Controlla se il player ha scelto di tornare al menù.
+                // Controlla se il player ha scelto di tornare al menù.
                 if(gioco.isRitornaAlMenu()) {
-                    continue;  //Torna all'inizio del ciclo principale.
+                    continue;  // Torna all'inizio del ciclo principale.
                 }
 
-                //Controlla se la partita è terminata.
+                // Controlla se la partita è terminata.
                 if(!gioco.isPartitaInCorso()) {
                     OutputUtils.print("La partita è terminata, vuoi tornare al menù iniziale? (S/N): ", OutputUtils.ANSI_CYAN, OutputUtils.ANSI_BOLD);
                     String risposta = InputManagerSingleton.getInstance().readString();
@@ -100,7 +99,7 @@ public class Runner {
                         System.out.println();
                         running = false; // Termina il gioco.
                     }  
-                    //Se l'utente sceglie "s", il gioco riparte.              
+                    // Se l'utente sceglie "s", il gioco riparte.              
                 }
             
             } catch (InizializzaPartitaException e) {

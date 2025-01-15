@@ -9,7 +9,6 @@ import it.univaq.disim.lpo.risiko.core.model.Territorio;
 /**
  * Interfaccia per i servizi relativi ai giocatori.
  */
-
 public interface GiocatoreService {
 
 	 /**

@@ -6,7 +6,6 @@ import it.univaq.disim.lpo.risiko.core.model.Gioco;
 /**
  * Interfaccia per i servizi relativi alle operazioni sui file
  */
-
 public interface FileService {
 
     /**

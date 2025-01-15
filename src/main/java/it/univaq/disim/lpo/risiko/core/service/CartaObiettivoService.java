@@ -7,7 +7,6 @@ import it.univaq.disim.lpo.risiko.core.model.Giocatore;
 /**
  * Interfaccia per i servizi relativi alle carte obiettivo.
  */
-
 public interface CartaObiettivoService {
 
     /**

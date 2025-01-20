@@ -54,3 +54,5 @@ mvn exec:java -Dexec.mainClass="it.univaq.disim.lpo.risiko.core.StartGame"
 
 -   **Dipendenze non trovate:** Esegui `mvn clean install` per assicurarti che tutte le dipendenze siano scaricate.
 -   **Versioni di Java non compatibili:** Controlla la versione di Java installata e assicurati che corrisponda a quella richiesta.
+
+*Progetto realizzato con la collaborazione di **@AlexMarinucci99***

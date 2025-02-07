@@ -7,7 +7,6 @@ package it.univaq.disim.lpo.risiko.core;
  * all'interno del flusso di esecuzione del gioco, consentendo di gestire
  * in modo concentrato problemi imprevisti o situazioni anomale.
  */
-
 public class RisikoException extends RuntimeException {
 
     private static final long serialVersionUID = 1L;

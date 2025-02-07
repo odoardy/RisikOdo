@@ -21,7 +21,6 @@ public class Giocatore implements Serializable{
 	private boolean haRicevutoCartaBonus;
 	
 	public Giocatore(String nome, int armate, List<Territorio> territori_controllati,int risultatoLancioDado, int totaleArmate) {
-		
 		this.nome = nome;
 		this.armate = armate;
 		this.territori_controllati = (territori_controllati != null) ? territori_controllati : new ArrayList<>();	
@@ -34,7 +33,6 @@ public class Giocatore implements Serializable{
 	public Giocatore(String nome, int armate, List<Territorio> territori_controllati, int totaleArmate ) {
 		this(nome, armate, territori_controllati, 0, totaleArmate); // valore predefinito per risultatoLancioDado
 	}
-	
 	
 	public String getNome() {
 		return this.nome;
@@ -110,37 +108,31 @@ public class Giocatore implements Serializable{
 	
 	//aggiungere una carta
 	public void aggiungiCarta(Carta carta) {
-		
 		carte.add(carta);
 	}
 	
 	//rimuove le carte
 	public void rimuoviCarte(List<Carta> carteDaRimuovere) {
-		
 		carte.removeAll(carteDaRimuovere);
 	}
 	
 	//incrementa territori conquistati durante il turno
 	public void incrementaTerritoriConquistatiNelTurno() {
-		
 		this.territoriConquistatiNelTurno++;
 	}
 	
 	//resetta i territori conquistati
 	public void resetTerritoriConquistatiNelTurno() {
-		
 		this.territoriConquistatiNelTurno = 0;	
 	}
 	
 	//incrementa toale armate
 	public void incrementaTotaleArmate(int increment) {
-		
 		this.totaleArmate += increment;
 	}
 	
 	//equals territorio 
 	public Territorio getTerritorioByName(String nome) {
-		
 		for(Territorio territorio : territori_controllati) {
 			if(territorio.getNome().equalsIgnoreCase(nome)) {
 				return territorio;
@@ -151,7 +143,6 @@ public class Giocatore implements Serializable{
 	
 	//aggiunge territorio
 	public void aggiungiTerritorio(Territorio territorio) {
-		
 		if(!territori_controllati.contains(territorio)) {
 			territori_controllati.add(territorio);
 			territorio.setGiocatore(this);
@@ -160,13 +151,11 @@ public class Giocatore implements Serializable{
 	
 	// rimuove territorio
 	public void rimuoviTerritorio(Territorio territorio) {
-		
 		territori_controllati.remove(territorio);
 	}
 	
 	//Equals e Hash
 	public boolean equals(Object o) {
-		
 		if (this == o) return true;
 		if (o == null || getClass() != o.getClass()) return false;
 		Giocatore giocatore = (Giocatore) o;
@@ -175,12 +164,7 @@ public class Giocatore implements Serializable{
 	}
 	
 	public int hashCode() {
-		
 		return nome != null ? nome.toLowerCase().hashCode() : 0;
 	}
 	
 }
-	
-	
-
-

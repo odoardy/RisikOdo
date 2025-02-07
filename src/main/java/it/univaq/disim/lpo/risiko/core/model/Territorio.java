@@ -67,13 +67,11 @@ public class Territorio implements Serializable {
     
     // aggiunge armate
     public void aggiungiArmate(int armate) {
-    	
         this.armate += armate;
     }
 
     // rimuove armate
     public void rimuoviArmate(int numero) {
-    	
         if (numero <= this.armate) {
             this.armate -= numero;
         } else {
@@ -83,7 +81,6 @@ public class Territorio implements Serializable {
     
     //aggiunge territorio adiacente
     public void aggiungiTerritorioAdiacente(Territorio territorio) {
-    	
     	if (!(this.territoriAdiacenti.contains(territorio))) {
     		this.territoriAdiacenti.add(territorio);
     		if(!(territorio.getTerritoriAdiacenti().contains(this))) {
@@ -93,7 +90,6 @@ public class Territorio implements Serializable {
     }
     
     public boolean equals(Object o) {
-    	
     	if (this == o) return true;
     	if (o == null || getClass() != o.getClass()) return false;
     	Territorio that = (Territorio) o;
@@ -101,7 +97,7 @@ public class Territorio implements Serializable {
     }
     
     public int hasCode() {
-    	
     	return Objects.hash(nome);
     }
+
 }

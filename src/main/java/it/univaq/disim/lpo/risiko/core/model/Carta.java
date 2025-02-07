@@ -3,6 +3,7 @@ package it.univaq.disim.lpo.risiko.core.model;
 import java.io.Serializable;
 
 public class Carta implements Serializable {
+    
     private static final long serialVersionUID = 1L;
     private TipoCarta tipo;
     private Territorio territorio;

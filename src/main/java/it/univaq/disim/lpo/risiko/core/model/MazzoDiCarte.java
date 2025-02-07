@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Random;
 
 public class MazzoDiCarte implements Serializable {
+
     private static final long serialVersionUID = 1L;
     private LinkedList<Carta> carte;
 

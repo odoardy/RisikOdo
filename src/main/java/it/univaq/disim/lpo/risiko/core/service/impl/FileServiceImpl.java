@@ -45,6 +45,7 @@ public class FileServiceImpl implements FileService {
             }
         }
     }
+
     /**
      * Ottiene il prossimo numero di partita per un'identificazione univoca.
      * 
@@ -61,6 +62,7 @@ public class FileServiceImpl implements FileService {
         }
         return instance;
     }
+
     /**
      * Salva lo stato del gioco su un file.
      * 
@@ -68,7 +70,6 @@ public class FileServiceImpl implements FileService {
      * @param fileName il nome del file su cui salvare.
      * @throws IOException se si verifica un errore di I/O.
      */
-
     public void salvaGioco(Gioco gioco, String fileName) throws IOException {
         Path path = Paths.get(SAVE_FOLDER + fileName);
         try (FileOutputStream fileOut = new FileOutputStream(path.toFile());
@@ -80,6 +81,7 @@ public class FileServiceImpl implements FileService {
         }
 
     }
+
     /**
      * Carica una partita salvata da un file.
      * 
@@ -88,7 +90,6 @@ public class FileServiceImpl implements FileService {
      * @throws IOException se si verifica un errore di I/O.
      * @throws ClassNotFoundException se la classe Gioco non viene trovata.
      */
-
     public Gioco caricaGioco(String fileName) throws IOException, ClassNotFoundException {
         Path path = Paths.get(SAVE_FOLDER + fileName);
         try (FileInputStream fileIn = new FileInputStream(path.toFile());
@@ -101,13 +102,13 @@ public class FileServiceImpl implements FileService {
             throw e;
         }
     }
+
     /**
      * Legge dati da un file.
      * 
      * @param fileName il nome del file da leggere.
      * @return il contenuto del file come stringa.
      */
-
     public String readData(String fileName) {
         Path path = Paths.get(fileName);
         try {
@@ -117,13 +118,13 @@ public class FileServiceImpl implements FileService {
             return "";
         }
     }
+
     /**
      * Scrive dati su un file.
      * 
      * @param fileName il nome del file su cui scrivere.
      * @param data i dati da scrivere.
      */
-
     public void writeData(String fileName, String data) {
         Path path = Paths.get(fileName);
         try {
@@ -139,7 +140,6 @@ public class FileServiceImpl implements FileService {
      * 
      * @return il prossimo numero di partita.
      */
-
     public int getNextGameNumber() {
         Path counterFile = Paths.get(LOG_FOLDER, "game_counter.txt");
         int gameNumber = 1; //Default a 1 se il file non esiste.
@@ -159,22 +159,22 @@ public class FileServiceImpl implements FileService {
          }
          return gameNumber;
     }
+
     /**
      * Imposta il nome del file di log corrente.
      * 
      * @param logFileName il nome del file di log.
-     */
-        
+     */    
     public void  setCurrentLogFileName(String logFileName) {
         this.currentLogFileName = logFileName;
     }
+
     /**
      * Rinomina un file di log.
      * 
      * @param oldFileName il nome attuale del file.
      * @param newFileName il nuovo nome per il file.
      */
-
     public void  renameLogFile(String oldFileName, String newFileName) {
         Path oldFilePath = Paths.get(LOG_FOLDER + oldFileName);
         Path newFilePath = Paths.get(LOG_FOLDER + newFileName);
@@ -187,12 +187,12 @@ public class FileServiceImpl implements FileService {
             System.out.println("Errore durante la rinomina del file di log: " + e.getMessage());
         }
     }
+
     /**
      * Scrive un'entrata nel log corrente.
      * 
      * @param data i dati da scrivere nel log.
      */
-
     public void writeLog(String data) {
         if (currentLogFileName == null) {
             System.out.println("Errore: nessun file di log impostato per la scrittura.");
@@ -214,7 +214,4 @@ public class FileServiceImpl implements FileService {
         }
     }
 
-
 }
-
-

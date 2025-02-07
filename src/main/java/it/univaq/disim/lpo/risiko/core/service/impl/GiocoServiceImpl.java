@@ -22,7 +22,7 @@ import it.univaq.disim.lpo.risiko.core.utils.OutputUtils;
  * Implementazione dell'interfaccia GiocoService.
  * Gestisce l'inizializzazione e il flusso della partita.
  */
-public class GiocoServiceImpl {
+public class GiocoServiceImpl implements GiocoService {
 
     private final FileService fileservice = FileServiceImpl.getInstance();
     private final GiocatoreService giocatoreService = new GiocatoreServiceImpl();

@@ -11,7 +11,7 @@ import it.univaq.disim.lpo.risiko.core.model.Territorio;
  */
 public interface GiocatoreService {
 
-	 /**
+	/**
      * Aggiunge un territorio alla lista dei territori controllati dal giocatore.
      *
      * @param giocatore il giocatore a cui aggiungere il territorio.
@@ -35,7 +35,7 @@ public interface GiocatoreService {
      */
 	void aggiungiArmate(Giocatore giocatore, int armate);
 	
-	 /**
+	/**
      * Rimuove armate dal giocatore.
      *
      * @param giocatore il giocatore da cui rimuovere le armate.
@@ -59,7 +59,7 @@ public interface GiocatoreService {
      */
 	List<Giocatore> creaGiocatori(int numeroGiocatori);
 	
-	 /**
+	/**
      * Determina l'ordine di gioco lanciando i dadi per ciascun giocatore.
      *
      * @param giocatori la lista dei giocatori.
@@ -67,7 +67,7 @@ public interface GiocatoreService {
      */
 	List<Giocatore> lancioDadiPerPrimoGiocatore(List<Giocatore> giocatori);
 	
-	 /**
+	/**
      * Calcola il numero di armate iniziali per ciascun giocatore in base al numero totale di giocatori.
      *
      * @param numeroGiocatori il numero totale di giocatori.
@@ -99,7 +99,7 @@ public interface GiocatoreService {
      */
 	int scambiaCartePerArmate(Giocatore giocatore, Gioco gioco);
 	
-	 /**
+	/**
      * Verifica se il giocatore possiede almeno una combinazione valida di carte per effettuare uno scambio.
      *
      * @param giocatore il giocatore da verificare.
